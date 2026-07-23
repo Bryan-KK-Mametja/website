@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Bryan Mametja">
+  <title>Bryan Mametja - Data Science</title>
+  <!-- CSS FILES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* ---------- GLOBAL ---------- */
+    :root {
+      --white: #ffffff;
+      --off-white: #f8fafc;
+      --light-gray: #f0f2f5;
+      --border-light: #e6eaef;
+      --dark: #0b1426;
+      --navy: #1a2a4a;
+      --dark-gray: #2c3e50;
+      --text-body: #2c3e50;
+      --text-muted: #5e6f8d;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      background: var(--white);
+      font-family: var(--font-sans);
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .section-padding {
+      padding: 100px 0;
+    }
+    .section-title-wrap {
+      background: var(--dark);
+      border-radius: 10px;
+      padding: 10px 30px;
+      display: inline-block;
+    }
+    .section-title-wrap h2 {
+      color: var(--white);
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    /* ---------- NAV ---------- */
+    .navbar {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .navbar .container {
+      padding: 0 20px;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .navbar-brand:hover { color: var(--dark); }
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      transition: color 0.2s;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--dark);
+    }
+    .navbar .custom-btn {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 40px;
+      padding: 0.4rem 1.4rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      border: none;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .navbar .custom-btn:hover {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: var(--off-white);
+      padding: 140px 0 100px;
+      border-bottom: 1px solid var(--border-light);
+      min-height: auto;
+    }
+    .hero-headline {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-top: 1.2rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero-sub strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+    .btn-dark-custom {
+      background: var(--dark);
+      color: #fff;
+      padding: 0.8rem 3rem;
+      border-radius: 40px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-dark-custom:hover {
+      background: var(--navy);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about {
+      background: var(--white);
+    }
+    .about-image {
+      border-radius: 20px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.06);
+      width: 100%;
+      height: auto;
+    }
+    .about-thumb {
+      padding-left: 20px;
+    }
+    .about-thumb .about-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .about-thumb .about-subhead {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .about-thumb p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .about-thumb .bio-link {
+      color: var(--dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--dark);
+    }
+    .about-thumb .bio-link:hover {
+      opacity: 0.7;
+    }
+    .avatar-small {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border-light);
+    }
+
+    /* ---------- FEATURED INFO ---------- */
+    .featured {
+      background: var(--off-white);
+      padding: 80px 0;
+    }
+    .profile-thumb {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+    }
+    .profile-title {
+      border-bottom: 1px solid var(--border-light);
+      padding: 15px 30px;
+    }
+    .profile-title h4 {
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0;
+    }
+    .profile-body p {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      border-bottom: 1px solid #f0f2f5;
+      padding: 13px 30px;
+    }
+    .profile-body p:last-child {
+      border-bottom: none;
+    }
+    .profile-small-title {
+      font-weight: 600;
+      color: var(--dark);
+      min-width: 140px;
+      margin-right: 10px;
+    }
+    .profile-body span {
+      color: var(--text-muted);
+    }
+    .profile-body a {
+      color: var(--dark);
+      text-decoration: none;
+    }
+    .profile-body a:hover {
+      opacity: 0.7;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      display: block;
+    }
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    .stat-border-bottom {
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .stat-border-start {
+      border-left: 1px solid var(--border-light);
+    }
+
+    /* ---------- SERVICES (SKILLS) ---------- */
+    .services {
+      background: var(--off-white);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .services-thumb {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      padding: 40px 40px 240px 40px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    .services-thumb:hover {
+      border-color: var(--dark);
+      box-shadow: 0 1rem 3rem rgba(0,0,0,0.08);
+    }
+    .services-thumb-up {
+      position: relative;
+      bottom: 50px;
+      margin-bottom: -26px;
+    }
+    .services-thumb h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .services-thumb p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .services-thumb .border-bottom {
+      border-bottom: 1px solid var(--border-light) !important;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .services-icon-wrap {
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 55%;
+      transform: rotate(-35deg) translateY(55px);
+      transition: all ease 0.5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .services-thumb:hover .services-icon-wrap {
+      background: var(--dark);
+      border-color: var(--dark);
+    }
+    .services-icon {
+      font-size: 90px;
+      position: relative;
+      bottom: 15px;
+      color: var(--dark);
+    }
+    .services-thumb:hover .services-icon {
+      color: var(--white);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects {
+      background: var(--white);
+    }
+    .projects-thumb {
+      background: var(--off-white);
+      border: 2px solid var(--white);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 24px;
+      margin-bottom: 24px;
+      padding: 40px;
+      transition: all ease 0.5s;
+    }
+    .projects-thumb:hover {
+      border-color: var(--dark);
+    }
+    .projects-thumb .project-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .projects-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--dark);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      display: block;
+    }
+    .projects-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .projects-image {
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+      transform: rotate(10deg) translateY(80px);
+      transition: all ease 0.5s;
+    }
+    .projects-thumb:hover .projects-image {
+      transform: rotate(0) translateY(0);
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      background: var(--off-white);
+    }
+    .contact-info {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 60px 30px 30px 30px;
+      height: 100%;
+      border: 1px solid var(--border-light);
+    }
+    .contact-info-border-start {
+      border-right: 1px solid var(--border-light);
+      border-radius: 10px 0 0 10px;
+    }
+    .contact-info .site-footer-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--dark);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .footer-menu {
+      margin: 0;
+      padding: 0;
+    }
+    .footer-menu-item {
+      list-style: none;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .footer-menu-link {
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 6px 14px;
+      min-width: 70px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .footer-menu-link:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: var(--white);
+    }
+    .social-icon {
+      margin: 0;
+      padding: 0;
+    }
+    .social-icon-item {
+      list-style: none;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .social-icon-link {
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      font-size: 0.9rem;
+      color: var(--dark);
+      display: inline-block;
+      vertical-align: top;
+      margin: 2px 2px 5px 2px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-icon-link:hover {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: var(--white);
+    }
+    .contact-form .form-control {
+      background: var(--white);
+      box-shadow: none;
+      border: 2px solid var(--border-light);
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      outline: none;
+      border-radius: 10px;
+    }
+    .contact-form .form-control:focus {
+      border-color: var(--dark);
+    }
+    .contact-form .form-floating textarea {
+      height: 150px;
+    }
+    .contact-form button {
+      background: var(--dark);
+      border: none;
+      border-radius: 40px;
+      color: var(--white);
+      font-weight: 700;
+      transition: all 0.3s;
+      padding: 12px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+    .contact-form button:hover {
+      background: var(--navy);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      border-top: 1px solid var(--border-light);
+      padding: 50px 0;
+      text-align: center;
+      background: var(--white);
+    }
+    .site-footer p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .site-footer a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .site-footer a:hover {
+      opacity: 0.7;
+    }
+    .copyright-text {
+      border-right: 1px solid var(--border-light);
+      padding-right: 25px;
+      margin-right: 20px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 991px) {
+      .hero-headline { font-size: 2.8rem; }
+      .hero { padding: 120px 0 80px; }
+      .about-thumb { padding-left: 0; margin-top: 30px; }
+      .services-thumb-up { bottom: 0; margin-bottom: 24px; }
+      .contact-info-border-start { border-right: 0; border-bottom: 1px solid var(--border-light); border-radius: 10px 10px 0 0; }
+    }
+    @media (max-width: 576px) {
+      .hero-headline { font-size: 2.2rem; }
+      .hero-sub { font-size: 1rem; }
+      .section-title-wrap h2 { font-size: 2rem; }
+      .stat-number { font-size: 2.2rem; }
+      .services-thumb { padding: 30px 30px 200px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bryan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#section_1">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_2">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_3">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_4">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_5">Contact</a></li>
+          <li class="nav-item ms-lg-2"><a class="custom-btn btn" href="#section_5">076-093-0321</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="section_1">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-12">
+            <h1 class="hero-headline">Welcome</h1>
+            <p class="hero-sub">
+              <strong>Kgoana Kabelo Bryan Mametja</strong> —  a final year Data Science student, 
+              IITPSA student member, President of <b><a href="http://www.bitlaps.com/" target="_blank">BitLaps</a></b>, and founder of <b><a href="https://www.quant-acuity.com/", target="_blank">Quant Acuity</a></b>. 
+              Interested about machine learning, data analysis, and building 
+              intelligent solutions.
+            </p>
+            <a href="#section_2" class="btn-dark-custom">Know more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section-padding" id="section_2">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-12">
+            <img src="images/2. Data.jpg" class="about-image img-fluid" alt="working together">
+          </div>
+          <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+            <div class="about-thumb">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <h2 class="about-title">My Story</h2>
+                <img src="images/1-1. Data.jpg" class="avatar-small" alt="avatar">
+              </div>
+              <h3 class="about-subhead">A little bit about Bryan</h3>
+              <p>
+                I'm a final year data science student. Born in Limpopo Polokwane, studies in Mpumalanga Mbombela, ready to work anywhere.
+              </p>
+              <p>
+                My specific interests in the field of data science are around machine learning and data analysis. 
+                I enjoy working with skilled and talented individuals who can help me grow my skills and knowledge.
+                I have always had an interest in the field of IT, taking this interest to competitive settings such as 
+                the Eskom Expo for Young Scientists taking part in the Computer Science category and 
+                taking part in IITPSA competitions in highschool. I have also taken part and led a team for my school Hackathon. 
+                I'm the founder of Quant Acuity a South African based data science platform and 
+                currently serve as President of <a href="http://bitlaps.com" target="_blank" class="bio-link">BitLaps</a> (the student led campus IT lab).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED INFO -->
+    <section class="featured">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="profile-thumb">
+              <div class="profile-title"><h4>Information</h4></div>
+              <div class="profile-body">
+                <p><span class="profile-small-title">Name</span> <span>Bryan Kgoana Kabelo Mametja</span></p>
+                <p><span class="profile-small-title">Birthday</span> <span>Aug 1, 2005</span></p>
+                <p><span class="profile-small-title">Phone</span> <span><a href="tel:0760930321">076-093-0321</a></span></p>
+                <p><span class="profile-small-title">Email</span> <span><a href="mailto:bryanmametja820@gmail.com">bryanmametja820@gmail.com</a></span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+            <div class="about-thumb" style="padding-left:0;">
+              <div class="row">
+                <div class="col-lg-6 col-6 stat-border-bottom py-2">
+                  <span class="stat-number">3</span>
+                  <p class="stat-label">Degree length</p>
+                </div>
+                <div class="col-lg-6 col-6 stat-border-start stat-border-bottom ps-5 py-2">
+                  <span class="stat-number">4</span>
+                  <p class="stat-label">Projects</p>
+                </div>
+                <div class="col-lg-6 col-6 pt-4">
+                  <span class="stat-number">2</span>
+                  <p class="stat-label">Years in BitLaps</p>
+                </div>
+                <div class="col-lg-6 col-6 stat-border-start ps-5 pt-4">
+                  <span class="stat-number">8</span>
+                  <p class="stat-label">Awards</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="services section-padding" id="section_3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-12 mx-auto">
+            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5 mx-auto" style="width:fit-content;">
+              <h2>Skills</h2>
+            </div>
+            <div class="row pt-lg-5">
+              <div class="col-lg-6 col-12">
+                <div class="services-thumb">
+                  <div class="d-flex flex-wrap align-items-center border-bottom">
+                    <h3>Exploratory Data Analysis</h3>
+                  </div>
+                  <p>I analyze datasets, summarize their main characteristics, and uncover underlying patterns or anomalies.</p>
+                  <div class="services-icon-wrap">
+                    <i class="services-icon bi-bar-chart-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="services-thumb services-thumb-up">
+                  <div class="d-flex flex-wrap align-items-center border-bottom">
+                    <h3>Programming</h3>
+                  </div>
+                  <p>I'm able to programme in languages such as R, C++, JavaScript and etc.</p>
+                  <div class="services-icon-wrap">
+                    <i class="services-icon bi-code-square"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="services-thumb">
+                  <div class="d-flex flex-wrap align-items-center border-bottom">
+                    <h3>Leadership</h3>
+                  </div>
+                  <p>I have been Vice President of the student lead IT lab in 2025 and currently server as President. These roles have helped cultivate my leadership skills.</p>
+                  <div class="services-icon-wrap">
+                    <i class="services-icon bi-people-fill"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="services-thumb services-thumb-up">
+                  <div class="d-flex flex-wrap align-items-center border-bottom">
+                    <h3>Web server management</h3>
+                  </div>
+                  <p>I'm able to set up virtual hosts, optimize performance, apply SSL/TLS security managing backups and much more.</p>
+                  <div class="services-icon-wrap">
+                    <i class="services-icon bi-server"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section-padding" id="section_4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-12 mx-auto text-center">
+            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4 mx-auto" style="width:fit-content;">
+              <h2>Some Projects</h2>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="projects-thumb">
+              <a href="https://quant-acuity.com/" target="_blank" class="project-link">
+                <div class="projects-info">
+                  <small class="projects-tag">Entrepreneurship</small>
+                  <h3 class="projects-title">Quant Acuity</h3>
+                </div>
+                <img src="images/letters.png" class="projects-image img-fluid" alt="Quant Acuity">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="projects-thumb">
+              <a href="https://github.com/Bryan-KK-Mametja/JSE-Investment-Challenge-Team-Opima" target="_blank" class="project-link">
+                <div class="projects-info">
+                  <small class="projects-tag">Investment</small>
+                  <h3 class="projects-title">JSE-Optima</h3>
+                </div>
+                <img src="images/1. Data.jpg" class="projects-image img-fluid" alt="JSE-Optima">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="projects-thumb">
+              <a href="https://github.com/Bryan-KK-Mametja/SafeLink-SE2023-round1" target="_blank" class="project-link">
+                <div class="projects-info">
+                  <small class="projects-tag">Cybersecurity</small>
+                  <h3 class="projects-title">SafeLink</h3>
+                </div>
+                <img src="images/link.jpg" class="projects-image img-fluid" alt="SafeLink">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section-padding" id="section_5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 col-12">
+            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5" style="width:fit-content;">
+              <h2>Say Hi</h2>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
+            <div class="contact-info contact-info-border-start d-flex flex-column">
+              <strong class="site-footer-title d-block mb-3">Services</strong>
+              <ul class="footer-menu">
+                <li class="footer-menu-item"><a href="#" class="footer-menu-link">EDA</a></li>
+                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Programming</a></li>
+                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Web server</a></li>
+                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Data science</a></li>
+              </ul>
+              <strong class="site-footer-title d-block mt-4 mb-3">Stay connected</strong>
+              <ul class="social-icon">
+                <li class="social-icon-item">
+                  <a href="https://www.linkedin.com/in/bryan-mametja-4a428b294/" target="_blank" class="social-icon-link bi-linkedin" rel="noopener"></a>
+                </li>
+                <li class="social-icon-item">
+                  <a href="https://github.com/Bryan-KK-Mametja" target="_blank" class="social-icon-link bi-github" rel="noopener"></a>
+                </li>
+              </ul>
+              <strong class="site-footer-title d-block mt-4 mb-3">Start a project</strong>
+              <p class="mb-0">I'm open for available roles</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
+            <div class="contact-info d-flex flex-column">
+              <strong class="site-footer-title d-block mb-3">About</strong>
+              <p class="mb-2">A data science student ready to work.</p>
+              <strong class="site-footer-title d-block mt-4 mb-3">Email</strong>
+              <p><a href="mailto:bryanmametja820@gmail.com">bryanmametja820@gmail.com</a></p>
+              <strong class="site-footer-title d-block mt-4 mb-3">Call</strong>
+              <p class="mb-0"><a href="tel:0760930321">076-093-0321</a></p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-12 mt-5 mt-lg-0">
+            <form action="#" method="get" class="custom-form contact-form" role="form">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="form-floating">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+                    <label for="floatingInput">Name</label>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12"> 
+                  <div class="form-floating">
+                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
+                    <label for="floatingTextarea">Tell me about the project</label>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-12 ms-auto">
+                  <button type="submit" class="form-control">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <div class="copyright-text-wrap">
+            <p>
+              <span class="copyright-text">Copyright © 2036 <a href="#">First Portfolio</a> Company. All rights reserved.</span>
+              Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('.nav-link, .btn-dark-custom').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
