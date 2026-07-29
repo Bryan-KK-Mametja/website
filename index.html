@@ -6,14 +6,12 @@
   <meta name="description" content="">
   <meta name="author" content="Bryan Mametja">
   <title>Bryan Mametja - Data Science</title>
-  <!-- CSS FILES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    /* ---------- GLOBAL ---------- */
     :root {
       --white: #ffffff;
       --off-white: #f8fafc;
@@ -58,7 +56,6 @@
       font-weight: 700;
     }
 
-    /* ---------- NAV ---------- */
     .navbar {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(6px);
@@ -107,7 +104,6 @@
       color: #fff;
     }
 
-    /* ---------- HERO ---------- */
     .hero {
       background: var(--off-white);
       padding: 140px 0 100px;
@@ -153,7 +149,6 @@
       transform: translateY(-2px);
     }
 
-    /* ---------- ABOUT ---------- */
     .about {
       background: var(--white);
     }
@@ -202,7 +197,6 @@
       border: 2px solid var(--border-light);
     }
 
-    /* ---------- FEATURED INFO ---------- */
     .featured {
       background: var(--off-white);
       padding: 80px 0;
@@ -269,7 +263,128 @@
       border-left: 1px solid var(--border-light);
     }
 
-    /* ---------- SERVICES (SKILLS) ---------- */
+    .timeline-section {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: var(--dark);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
+      border-radius: 10px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: var(--white);
+      border: 3px solid var(--dark);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .timeline-left {
+      left: 0;
+      padding-right: 50px;
+    }
+    .timeline-left::after {
+      right: -8px;
+    }
+    .timeline-right {
+      left: 50%;
+      padding-left: 50px;
+    }
+    .timeline-right::after {
+      left: -8px;
+    }
+    .timeline-content {
+      padding: 25px 30px;
+      background: var(--off-white);
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+    .timeline-content:hover {
+      border-color: var(--dark);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .timeline-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 4px 0;
+    }
+    .timeline-content .timeline-year {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .timeline-content p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .timeline-content .timeline-tag {
+      display: inline-block;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 20px;
+      }
+      .timeline-item::after {
+        left: 12px;
+      }
+      .timeline-left, .timeline-right {
+        left: 0;
+      }
+      .timeline-right {
+        padding-left: 60px;
+      }
+      .timeline-left::after, .timeline-right::after {
+        left: 12px;
+        right: auto;
+      }
+    }
+
     .services {
       background: var(--off-white);
       border-top: 1px solid var(--border-light);
@@ -338,7 +453,6 @@
       color: var(--white);
     }
 
-    /* ---------- PROJECTS ---------- */
     .projects {
       background: var(--white);
     }
@@ -386,7 +500,6 @@
       transform: rotate(0) translateY(0);
     }
 
-    /* ---------- CONTACT ---------- */
     .contact {
       background: var(--off-white);
     }
@@ -500,7 +613,6 @@
       background: var(--navy);
     }
 
-    /* ---------- FOOTER ---------- */
     .site-footer {
       border-top: 1px solid var(--border-light);
       padding: 50px 0;
@@ -526,7 +638,6 @@
       margin-right: 20px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 991px) {
       .hero-headline { font-size: 2.8rem; }
       .hero { padding: 120px 0 80px; }
@@ -546,7 +657,6 @@
 
 <body>
 
-  <!-- NAV -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="#">Bryan</a>
@@ -557,8 +667,9 @@
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link active" href="#section_1">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#section_2">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_timeline">Timeline</a></li>
           <li class="nav-item"><a class="nav-link" href="#section_3">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#section_4">Some projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_4">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#section_5">Contact</a></li>
           <li class="nav-item ms-lg-2"><a class="custom-btn btn" href="#section_5">076-093-0321</a></li>
         </ul>
@@ -568,7 +679,6 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="hero" id="section_1">
       <div class="container">
         <div class="row">
@@ -586,7 +696,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about section-padding" id="section_2">
       <div class="container">
         <div class="row align-items-center">
@@ -609,8 +718,8 @@
                 I have always had an interest in the field of IT, taking this interest to competitive settings such as 
                 the Eskom Expo for Young Scientists taking part in the Computer Science category and 
                 taking part in IITPSA competitions in highschool. I have also taken part and led a team for my school Hackathon. 
-                I'm the founder of Quant Acuity a South African based data science platform and 
-                currently serve as President of <a href="http://bitlaps.com" target="_blank" class="bio-link">BitLaps</a> (the student led campus IT lab).
+                I'm the founder of <b><a href="https://www.quant-acuity.com/", target="_blank">Quant Acuity</a></b> a South African based data science platform and 
+                currently serve as President of <b><a href="http://bitlaps.com" target="_blank">BitLaps</a></b> (the student led campus IT lab).
               </p>
             </div>
           </div>
@@ -618,7 +727,90 @@
       </div>
     </section>
 
-    <!-- FEATURED INFO -->
+    <section class="timeline-section" id="section_timeline">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12 text-center mb-5">
+            <div class="section-title-wrap d-flex justify-content-center align-items-center mx-auto" style="width:fit-content;">
+              <h2>Timeline</h2>
+            </div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">2022</span>
+              <h3>Silver in Eskom Expo and Bronze in SACO</h3>
+              <span class="timeline-tag">Competitiveness</span>
+              <p>
+                Competed in the South African Computer Olympiad and won bronze in the Applications category round 1.
+                Competed in the Eskom Expo for young Scientists and won silver in the Computer Science category.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <span class="timeline-year">2023</span>
+              <h3>Gold in Eskom Expo and Silver in Talent Search</h3>
+              <span class="timeline-tag">Competitiveness</span>
+              <p>
+                Competed in the South African Computer Olympiad Talent Search and won silver round 1.
+                Competed in the Eskom Expo for young Scientists and won gold in the Computer Science category.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">2024</span>
+              <h3>Started Data Science Degree</h3>
+              <span class="timeline-tag">Education</span>
+              <p>Began my journey as a Data Science student, building foundational knowledge in analytics, machine learning, and programming.</p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <span class="timeline-year">2024</span>
+              <h3>Academics</h3>
+              <span class="timeline-tag">Technical</span>
+              <p>
+                I achieved:
+                <ul>
+                  <li>Overall Top achiever</li>
+                  <li>Top 10 Mbombela Campus - 9th</li>
+                  <li>Academic Top achiever - Block 2</li>
+                  <li>Eduvos Hackathon Participation</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">2025</span>
+              <h3>Vice President of BitLaps</h3>
+              <span class="timeline-tag">Leadership</span>
+              <p>Served as Vice President, supporting the team and coordinating lab activities, projects and events.</p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-right">
+            <div class="timeline-content">
+              <span class="timeline-year">2026</span>
+              <h3>President of BitLaps</h3>
+              <span class="timeline-tag">Leadership</span>
+              <p>Currently serving as President of the student-led IT lab at campus, leading initiatives and managing lab operations.</p>
+            </div>
+          </div>
+          <div class="timeline-item timeline-left">
+            <div class="timeline-content">
+              <span class="timeline-year">2026</span>
+              <h3>Founded Quant Acuity</h3>
+              <span class="timeline-tag">Entrepreneurship</span>
+              <p>Founded a South African based data science platform focused on delivering content, datasets and tools.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="featured">
       <div class="container">
         <div class="row">
@@ -659,7 +851,6 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section class="services section-padding" id="section_3">
       <div class="container">
         <div class="row">
@@ -718,7 +909,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="projects section-padding" id="section_4">
       <div class="container">
         <div class="row">
@@ -768,7 +958,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact section-padding" id="section_5">
       <div class="container">
         <div class="row">
