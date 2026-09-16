@@ -106,9 +106,13 @@
 
     .hero {
       background: var(--off-white);
-      padding: 140px 0 100px;
+      padding: 120px 0 100px;
       border-bottom: 1px solid var(--border-light);
-      min-height: auto;
+      position: relative;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
     .hero-headline {
       font-size: 3.8rem;
@@ -147,6 +151,64 @@
       background: var(--navy);
       color: #fff;
       transform: translateY(-2px);
+    }
+
+    .hero-avatar-fixed {
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--dark);
+      background: var(--light-gray);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-avatar-fixed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 1200px) {
+      .hero-avatar-fixed {
+        width: 290px;
+        height: 290px;
+        right: 3%;
+      }
+    }
+    @media (max-width: 991px) {
+      .hero-avatar-fixed {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin: 0 auto 30px auto;
+        width: 230px;
+        height: 230px;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    @media (max-width: 576px) {
+      .hero-avatar-fixed {
+        width: 180px;
+        height: 180px;
+      }
+      .hero-headline {
+        font-size: 2.2rem;
+      }
     }
 
     .about {
@@ -640,7 +702,7 @@
 
     @media (max-width: 991px) {
       .hero-headline { font-size: 2.8rem; }
-      .hero { padding: 120px 0 80px; }
+      .hero { padding: 100px 0 60px; }
       .about-thumb { padding-left: 0; margin-top: 30px; }
       .services-thumb-up { bottom: 0; margin-bottom: 24px; }
       .contact-info-border-start { border-right: 0; border-bottom: 1px solid var(--border-light); border-radius: 10px 10px 0 0; }
@@ -680,13 +742,16 @@
   <main>
 
     <section class="hero" id="section_1">
-      <div class="container">
+      <div class="hero-avatar-fixed">
+        <img src="images/cvpic.jpeg" alt="Bryan Mametja portrait">
+      </div>
+      <div class="container hero-content">
         <div class="row">
-          <div class="col-lg-10 col-12">
+          <div class="col-lg-8 col-12">
             <h1 class="hero-headline">Welcome</h1>
             <p class="hero-sub">
               <strong>Kgoana Kabelo Bryan Mametja</strong> —  a final year IT student, 
-              IITPSA student member, President of <b><a href="http://www.bitlaps.com/" target="_blank">BitLaps</a></b>, and founder of <b><a href="https://www.quant-acuity.com/", target="_blank">Quant Acuity</a></b>. 
+              IITPSA student member, President of <b><a href="http://www.bitlaps.com/" target="_blank">BitLaps</a></b>, and founder of <b><a href="https://www.quant-acuity.com/" target="_blank">Quant Acuity</a></b>. 
               Interested about systems, machine learning, data analysis, and building 
               intelligent solutions.
             </p>
@@ -717,7 +782,7 @@
                 I have always had an interest in the field of IT, taking this interest to competitive settings such as 
                 the Eskom Expo for Young Scientists taking part in the Computer Science category and 
                 taking part in IITPSA competitions in highschool. I have also taken part and led a team for my school Hackathon. 
-                I'm the founder of <b><a href="https://www.quant-acuity.com/", target="_blank">Quant Acuity</a></b> a South African based data science platform and 
+                I'm the founder of <b><a href="https://www.quant-acuity.com/" target="_blank">Quant Acuity</a></b> a South African based data science platform and 
                 currently serve as President of <b><a href="http://bitlaps.com" target="_blank">BitLaps</a></b> (the student led campus IT lab).
               </p>
             </div>
@@ -914,153 +979,3 @@
           <div class="col-lg-8 col-md-8 col-12 mx-auto text-center">
             <div class="section-title-wrap d-flex justify-content-center align-items-center mb-4 mx-auto" style="width:fit-content;">
               <h2>Some Projects</h2>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="projects-thumb">
-              <a href="https://quant-acuity.com/" target="_blank" class="project-link">
-                <div class="projects-info">
-                  <small class="projects-tag">Entrepreneurship</small>
-                  <h3 class="projects-title">Quant Acuity</h3>
-                </div>
-                <img src="images/letters.png" class="projects-image img-fluid" alt="Quant Acuity">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="projects-thumb">
-              <a href="https://github.com/Bryan-KK-Mametja/JSE-Investment-Challenge-Team-Opima" target="_blank" class="project-link">
-                <div class="projects-info">
-                  <small class="projects-tag">Investment</small>
-                  <h3 class="projects-title">JSE-Optima</h3>
-                </div>
-                <img src="images/1. Data.jpg" class="projects-image img-fluid" alt="JSE-Optima">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="projects-thumb">
-              <a href="https://github.com/Bryan-KK-Mametja/SafeLink-SE2023-round1" target="_blank" class="project-link">
-                <div class="projects-info">
-                  <small class="projects-tag">Cybersecurity</small>
-                  <h3 class="projects-title">SafeLink</h3>
-                </div>
-                <img src="images/link.jpg" class="projects-image img-fluid" alt="SafeLink">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact section-padding" id="section_5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-8 col-12">
-            <div class="section-title-wrap d-flex justify-content-center align-items-center mb-5" style="width:fit-content;">
-              <h2>Say Hi</h2>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-
-          <div class="col-lg-3 col-md-6 col-12 pe-lg-0">
-            <div class="contact-info contact-info-border-start d-flex flex-column">
-              <strong class="site-footer-title d-block mb-3">Services</strong>
-              <ul class="footer-menu">
-                <li class="footer-menu-item"><a href="#" class="footer-menu-link">EDA</a></li>
-                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Programming</a></li>
-                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Web server</a></li>
-                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Data science</a></li>
-              </ul>
-              <strong class="site-footer-title d-block mt-4 mb-3">Stay connected</strong>
-              <ul class="social-icon">
-                <li class="social-icon-item">
-                  <a href="https://www.linkedin.com/in/bryan-mametja-4a428b294/" target="_blank" class="social-icon-link bi-linkedin" rel="noopener"></a>
-                </li>
-                <li class="social-icon-item">
-                  <a href="https://github.com/Bryan-KK-Mametja" target="_blank" class="social-icon-link bi-github" rel="noopener"></a>
-                </li>
-              </ul>
-              <strong class="site-footer-title d-block mt-4 mb-3">Start a project</strong>
-              <p class="mb-0">I'm open for available roles</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-12 ps-lg-0">
-            <div class="contact-info d-flex flex-column">
-              <strong class="site-footer-title d-block mb-3">About</strong>
-              <p class="mb-2">A data science student ready to work.</p>
-              <strong class="site-footer-title d-block mt-4 mb-3">Email</strong>
-              <p><a href="mailto:bryanmametja820@gmail.com">bryanmametja820@gmail.com</a></p>
-              <strong class="site-footer-title d-block mt-4 mb-3">Call</strong>
-              <p class="mb-0"><a href="tel:0760930321">076-093-0321</a></p>
-            </div>
-          </div>
-
-          <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-            <form action="#" method="get" class="custom-form contact-form" role="form">
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-12">
-                  <div class="form-floating">
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
-                    <label for="floatingInput">Name</label>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-12"> 
-                  <div class="form-floating">
-                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                </div>
-                <div class="col-lg-12 col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" id="message" name="message" placeholder="Tell me about the project"></textarea>
-                    <label for="floatingTextarea">Tell me about the project</label>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-12 ms-auto">
-                  <button type="submit" class="form-control">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-12">
-          <div class="copyright-text-wrap">
-            <p>
-              <span class="copyright-text">Copyright © 2036 <a href="#">First Portfolio</a> Company. All rights reserved.</span>
-              Design: <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.querySelectorAll('.nav-link, .btn-dark-custom').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
