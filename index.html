@@ -18,10 +18,10 @@
       --light-gray: #f0f2f5;
       --border-light: #e6eaef;
       --dark: #0b1426;
-      --navy: #0a2f5c;
-      --navy-light: #0d3d78;
-      --accent: #0a2f5c;
-      --accent-hover: #0d3d78;
+      --navy: #2b2f36;
+      --navy-light: #3a3f47;
+      --accent: #1f2937;
+      --accent-hover: #111827;
       --dark-gray: #2c3e50;
       --text-body: #2c3e50;
       --text-muted: #5e6f8d;
@@ -49,8 +49,6 @@
       margin: 0;
       font-weight: 700;
     }
-
-    /* ===== NAVBAR ===== */
     .navbar {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(6px);
@@ -80,7 +78,7 @@
     .navbar-nav .nav-link:hover,
     .navbar-nav .nav-link.active { color: var(--accent); }
     .navbar .custom-btn {
-      background: var(--accent);
+      background: var(--dark);
       color: #fff;
       border-radius: 40px;
       padding: 0.4rem 1.4rem;
@@ -90,9 +88,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .navbar .custom-btn:hover { background: var(--accent-hover); color: #fff; }
-
-    /* ===== HERO ===== */
+    .navbar .custom-btn:hover { background: var(--accent); color: #fff; }
     .hero {
       background: var(--off-white);
       padding: 120px 0 100px;
@@ -118,7 +114,7 @@
     .hero-sub strong { color: var(--dark); font-weight: 600; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn-dark-custom {
-      background: var(--accent);
+      background: var(--dark);
       color: #fff;
       padding: 0.8rem 2.4rem;
       border-radius: 40px;
@@ -132,27 +128,27 @@
       display: inline-block;
     }
     .btn-dark-custom:hover {
-      background: var(--accent-hover);
+      background: var(--accent);
       color: #fff;
       transform: translateY(-2px);
     }
     .btn-outline-custom {
       background: transparent;
-      color: var(--accent);
+      color: var(--dark);
       padding: 0.8rem 2.4rem;
       border-radius: 40px;
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       font-size: 0.85rem;
-      border: 2px solid var(--accent);
+      border: 2px solid var(--dark);
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
     }
     .btn-outline-custom:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
+      background: var(--accent);
+      border-color: var(--accent);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -198,8 +194,6 @@
       .hero-avatar-fixed { width: 170px; height: 170px; }
       .hero-headline { font-size: 2rem; }
     }
-
-    /* ===== ABOUT ===== */
     .about { background: var(--white); }
     .about-image {
       border-radius: 20px;
@@ -229,8 +223,6 @@
       object-fit: cover;
       border: 2px solid var(--accent);
     }
-
-    /* ===== TIMELINE ===== */
     .timeline-section { background: var(--off-white); padding: 100px 0; }
     .timeline {
       position: relative;
@@ -278,7 +270,7 @@
     }
     .timeline-content:hover {
       border-color: var(--accent);
-      box-shadow: 0 8px 30px rgba(10, 47, 92, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
     .timeline-content h3 {
       font-size: 1.1rem;
@@ -321,11 +313,7 @@
       .timeline-right { padding-left: 60px; }
       .timeline-left::after, .timeline-right::after { left: 12px; right: auto; }
     }
-
-    /* ===== PROJECTS ===== */
     .projects { background: var(--white); }
-
-    /* Category tiles */
     .project-category-tile {
       display: flex;
       align-items: center;
@@ -339,62 +327,66 @@
       font-size: 1rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      box-shadow: 0 4px 16px rgba(10, 47, 92, 0.15);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
     }
     .project-category-tile:first-of-type { margin-top: 0; }
     .project-category-tile i { font-size: 1.3rem; opacity: 0.9; }
     .project-category-tile:hover {
       background: var(--accent-hover);
-      box-shadow: 0 6px 24px rgba(10, 47, 92, 0.25);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
       transform: translateY(-1px);
     }
-
     .project-tile {
       display: block;
-      background: var(--accent);
-      border: 1px solid var(--accent);
+      background: var(--off-white);
+      border: 1px solid var(--border-light);
       border-radius: 16px;
       padding: 26px 26px 22px;
       height: 100%;
       text-decoration: none;
-      color: var(--white);
+      color: inherit;
       transition: all 0.3s ease;
     }
     .project-tile:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
+      border-color: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(10, 47, 92, 0.3);
-      color: var(--white);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      color: inherit;
+    }
+    .project-tile .tile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
     }
     .project-tile .tile-tag {
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--white);
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: var(--accent);
+      background: var(--white);
+      border: 1px solid var(--accent);
       border-radius: 4px;
       padding: 2px 8px;
     }
     .project-tile .tile-tag.lang {
-      background: var(--white);
-      color: var(--accent);
-      border-color: var(--white);
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
     }
     .project-tile h4 {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--dark);
       margin: 0 0 8px;
       line-height: 1.3;
       transition: color 0.2s;
     }
-    .project-tile:hover h4 { color: var(--white); }
+    .project-tile:hover h4 { color: var(--accent); }
     .project-tile p {
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--text-muted);
       font-size: 0.9rem;
       line-height: 1.6;
       margin: 0 0 16px;
@@ -402,7 +394,7 @@
     .project-tile .tile-link {
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       display: inline-flex;
@@ -429,8 +421,6 @@
       gap: 4px;
     }
     .project-tile .tile-links a:hover { opacity: 0.7; }
-
-    /* ===== SKILLS ===== */
     .services {
       background: var(--off-white);
       border-top: 1px solid var(--border-light);
@@ -449,7 +439,7 @@
     }
     .services-thumb:hover {
       border-color: var(--accent);
-      box-shadow: 0 1rem 3rem rgba(10, 47, 92, 0.1);
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
     }
     .services-thumb h3 {
       font-size: 1.25rem;
@@ -496,8 +486,6 @@
       .services-thumb { padding: 28px 28px 170px 28px; }
       .services-icon { font-size: 64px; }
     }
-
-    /* ===== CONTACT ===== */
     .contact {
       background: var(--white);
       border-top: 1px solid var(--border-light);
@@ -512,7 +500,7 @@
     }
     .contact-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 8px 30px rgba(10, 47, 92, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     }
     .contact-card h4 {
       font-size: 1.3rem;
@@ -566,8 +554,6 @@
       border-color: var(--accent);
       color: var(--white);
     }
-
-    /* ===== FOOTER ===== */
     .site-footer {
       border-top: 1px solid var(--border-light);
       padding: 40px 0;
@@ -581,7 +567,6 @@
     }
     .site-footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
     .site-footer a:hover { opacity: 0.7; }
-
     @media (max-width: 991px) {
       .hero { padding: 80px 0 60px; }
       .about-thumb { padding-left: 0; margin-top: 30px; }
@@ -596,7 +581,6 @@
 
 <body>
 
-  <!-- ===== NAVBAR ===== -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand" href="#section_1">Bryan</a>
@@ -618,7 +602,6 @@
 
   <main>
 
-    <!-- ===== HERO ===== -->
     <section class="hero" id="section_1">
       <div class="hero-avatar-fixed">
         <img src="images/cvpic.jpeg" alt="Bryan Mametja portrait">
@@ -626,7 +609,7 @@
       <div class="container hero-content">
         <div class="row">
           <div class="col-lg-7 col-12">
-            <h1 class="hero-headline">Bsc in Information Technology specializing in data science Final-year student.</h1>
+            <h1 class="hero-headline">Final-year data science student.</h1>
             <p class="hero-sub">
               I've built ML models, analytics pipelines, and
               security tools across Python, R, C++, and JavaScript.
@@ -640,7 +623,6 @@
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
     <section class="projects section-padding" id="section_4">
       <div class="container">
         <div class="row">
@@ -649,7 +631,6 @@
               <h2>Projects</h2>
             </div>
 
-            <!-- Cybersecurity Category Tile -->
             <div class="project-category-tile">
               <i class="bi bi-shield-lock-fill"></i>
               <span>Cybersecurity</span>
@@ -686,7 +667,6 @@
               </div>
             </div>
 
-            <!-- Data Science & ML Category Tile -->
             <div class="project-category-tile">
               <i class="bi bi-cpu-fill"></i>
               <span>Data Science &amp; ML</span>
@@ -758,7 +738,7 @@
               <div class="col-lg-6 col-12">
                 <a href="https://github.com/Bryan-KK-Mametja/Machine-Learning-Algorithms" target="_blank" rel="noopener" class="project-tile">
                   <div class="tile-tags">
-                    <span class="tile-tag">2026</span>
+                    <span class="tile-tag">2025</span>
                     <span class="tile-tag lang">R</span>
                   </div>
                   <h4>Stack Overflow Developer Survey Analysis</h4>
@@ -807,7 +787,6 @@
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
     <section class="services section-padding" id="section_3">
       <div class="container">
         <div class="row">
@@ -866,7 +845,6 @@
       </div>
     </section>
 
-    <!-- ===== TIMELINE ===== -->
     <section class="timeline-section" id="section_timeline">
       <div class="container">
         <div class="row">
@@ -962,7 +940,6 @@
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
     <section class="about section-padding" id="section_2">
       <div class="container">
         <div class="row align-items-center">
@@ -991,7 +968,6 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
     <section class="contact section-padding" id="section_5">
       <div class="container">
         <div class="row">
@@ -1046,7 +1022,6 @@
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="row">
@@ -1063,7 +1038,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Smooth scroll
     document.querySelectorAll('.nav-link, .btn-dark-custom, .btn-outline-custom').forEach(link => {
       link.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -1075,10 +1049,8 @@
       });
     });
 
-    // Dynamic footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Active nav link on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
