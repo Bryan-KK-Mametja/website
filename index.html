@@ -19,6 +19,9 @@
       --border-light: #e6eaef;
       --dark: #0b1426;
       --navy: #1a2a4a;
+      --navy-light: #2a3f6a;
+      --accent: #1e3a8a;
+      --accent-hover: #1e40af;
       --dark-gray: #2c3e50;
       --text-body: #2c3e50;
       --text-muted: #5e6f8d;
@@ -64,7 +67,7 @@
       color: var(--dark);
       letter-spacing: -0.02em;
     }
-    .navbar-brand:hover { color: var(--dark); }
+    .navbar-brand:hover { color: var(--accent); }
     .navbar-nav .nav-link {
       font-weight: 500;
       font-size: 0.8rem;
@@ -75,7 +78,7 @@
       transition: color 0.2s;
     }
     .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active { color: var(--dark); }
+    .navbar-nav .nav-link.active { color: var(--accent); }
     .navbar .custom-btn {
       background: var(--dark);
       color: #fff;
@@ -87,7 +90,7 @@
       text-decoration: none;
       transition: background 0.2s;
     }
-    .navbar .custom-btn:hover { background: var(--navy); color: #fff; }
+    .navbar .custom-btn:hover { background: var(--accent); color: #fff; }
 
     /* ===== HERO ===== */
     .hero {
@@ -129,7 +132,7 @@
       display: inline-block;
     }
     .btn-dark-custom:hover {
-      background: var(--navy);
+      background: var(--accent);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -148,7 +151,8 @@
       display: inline-block;
     }
     .btn-outline-custom:hover {
-      background: var(--dark);
+      background: var(--accent);
+      border-color: var(--accent);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -161,7 +165,7 @@
       height: 340px;
       border-radius: 50%;
       overflow: hidden;
-      border: 2px solid var(--dark);
+      border: 3px solid var(--accent);
       background: var(--light-gray);
       z-index: 1;
       display: flex;
@@ -217,13 +221,13 @@
       line-height: 1.8;
     }
     .about-thumb p strong, .about-thumb p b { color: var(--dark); }
-    .about-thumb a { color: var(--dark); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--dark); }
+    .about-thumb a { color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--accent); }
     .about-thumb a:hover { opacity: 0.7; }
     .avatar-small {
       width: 60px; height: 60px;
       border-radius: 50%;
       object-fit: cover;
-      border: 2px solid var(--border-light);
+      border: 2px solid var(--accent);
     }
 
     /* ===== TIMELINE ===== */
@@ -238,7 +242,7 @@
       content: '';
       position: absolute;
       width: 3px;
-      background: var(--dark);
+      background: var(--accent);
       top: 0; bottom: 0;
       left: 50%;
       margin-left: -1.5px;
@@ -256,7 +260,7 @@
       position: absolute;
       width: 16px; height: 16px;
       background: var(--white);
-      border: 3px solid var(--dark);
+      border: 3px solid var(--accent);
       top: 15px;
       border-radius: 50%;
       z-index: 1;
@@ -273,8 +277,8 @@
       transition: all 0.3s ease;
     }
     .timeline-content:hover {
-      border-color: var(--dark);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(30, 58, 138, 0.08);
     }
     .timeline-content h3 {
       font-size: 1.1rem;
@@ -285,7 +289,7 @@
     .timeline-content .timeline-year {
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--text-muted);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: block;
@@ -299,7 +303,7 @@
     }
     .timeline-content .timeline-tag {
       display: inline-block;
-      background: var(--dark);
+      background: var(--accent);
       color: var(--white);
       font-size: 0.6rem;
       font-weight: 600;
@@ -318,19 +322,33 @@
       .timeline-left::after, .timeline-right::after { left: 12px; right: auto; }
     }
 
-    /* ===== PROJECTS (tiles) ===== */
+    /* ===== PROJECTS ===== */
     .projects { background: var(--white); }
-    .project-category {
-      font-size: 0.9rem;
+
+    /* Category tiles */
+    .project-category-tile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 14px 24px;
+      margin: 48px 0 24px;
       font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin: 48px 0 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 4px 16px rgba(30, 58, 138, 0.15);
+      transition: all 0.3s ease;
     }
-    .project-category:first-of-type { margin-top: 0; }
+    .project-category-tile:first-of-type { margin-top: 0; }
+    .project-category-tile i { font-size: 1.3rem; opacity: 0.9; }
+    .project-category-tile:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 6px 24px rgba(30, 58, 138, 0.25);
+      transform: translateY(-1px);
+    }
 
     .project-tile {
       display: block;
@@ -344,9 +362,9 @@
       transition: all 0.3s ease;
     }
     .project-tile:hover {
-      border-color: var(--dark);
+      border-color: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+      box-shadow: 0 12px 30px rgba(30, 58, 138, 0.1);
       color: inherit;
     }
     .project-tile .tile-tags {
@@ -360,16 +378,16 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--dark);
+      color: var(--accent);
       background: var(--white);
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--accent);
       border-radius: 4px;
       padding: 2px 8px;
     }
     .project-tile .tile-tag.lang {
-      background: var(--dark);
+      background: var(--accent);
       color: var(--white);
-      border-color: var(--dark);
+      border-color: var(--accent);
     }
     .project-tile h4 {
       font-size: 1.15rem;
@@ -377,7 +395,9 @@
       color: var(--dark);
       margin: 0 0 8px;
       line-height: 1.3;
+      transition: color 0.2s;
     }
+    .project-tile:hover h4 { color: var(--accent); }
     .project-tile p {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -387,13 +407,15 @@
     .project-tile .tile-link {
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--dark);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      transition: gap 0.2s;
     }
+    .project-tile:hover .tile-link { gap: 8px; }
     .project-tile .tile-link i { font-size: 0.75rem; }
     .project-tile .tile-links {
       display: flex;
@@ -403,7 +425,7 @@
     .project-tile .tile-links a {
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--dark);
+      color: var(--accent);
       text-transform: uppercase;
       letter-spacing: 0.04em;
       text-decoration: none;
@@ -431,14 +453,16 @@
       height: 100%;
     }
     .services-thumb:hover {
-      border-color: var(--dark);
-      box-shadow: 0 1rem 3rem rgba(0,0,0,0.08);
+      border-color: var(--accent);
+      box-shadow: 0 1rem 3rem rgba(30, 58, 138, 0.1);
     }
     .services-thumb h3 {
       font-size: 1.25rem;
       font-weight: 600;
       color: var(--dark);
+      transition: color 0.2s;
     }
+    .services-thumb:hover h3 { color: var(--accent); }
     .services-thumb p {
       color: var(--text-muted);
       font-size: 0.98rem;
@@ -462,14 +486,15 @@
       align-items: center;
     }
     .services-thumb:hover .services-icon-wrap {
-      background: var(--dark);
-      border-color: var(--dark);
+      background: var(--accent);
+      border-color: var(--accent);
     }
     .services-icon {
       font-size: 80px;
       position: relative;
       bottom: 15px;
-      color: var(--dark);
+      color: var(--accent);
+      transition: color 0.3s;
     }
     .services-thumb:hover .services-icon { color: var(--white); }
     @media (max-width: 576px) {
@@ -488,13 +513,20 @@
       padding: 40px;
       border: 1px solid var(--border-light);
       height: 100%;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(30, 58, 138, 0.06);
     }
     .contact-card h4 {
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 10px;
+      transition: color 0.2s;
     }
+    .contact-card:hover h4 { color: var(--accent); }
     .contact-card p {
       color: var(--text-muted);
       font-size: 0.98rem;
@@ -508,14 +540,15 @@
       border-bottom: 1px solid var(--border-light);
     }
     .contact-line:last-child { border-bottom: none; }
-    .contact-line i { color: var(--dark); font-size: 1.1rem; width: 22px; }
+    .contact-line i { color: var(--accent); font-size: 1.1rem; width: 22px; }
     .contact-line a {
       color: var(--dark);
       font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
+      transition: color 0.2s;
     }
-    .contact-line a:hover { opacity: 0.7; }
+    .contact-line a:hover { color: var(--accent); }
     .contact-line span { color: var(--text-muted); font-size: 0.95rem; }
     .social-icon { margin: 0; padding: 0; }
     .social-icon-item { list-style: none; display: inline-block; }
@@ -534,8 +567,8 @@
       transition: all 0.2s;
     }
     .social-icon-link:hover {
-      background: var(--dark);
-      border-color: var(--dark);
+      background: var(--accent);
+      border-color: var(--accent);
       color: var(--white);
     }
 
@@ -551,7 +584,7 @@
       color: var(--text-muted);
       margin: 0;
     }
-    .site-footer a { color: var(--dark); text-decoration: none; font-weight: 700; }
+    .site-footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
     .site-footer a:hover { opacity: 0.7; }
 
     @media (max-width: 991px) {
@@ -621,8 +654,11 @@
               <h2>Projects</h2>
             </div>
 
-            <!-- Cybersecurity -->
-            <h3 class="project-category"><strong>Cybersecurity</strong></h3>
+            <!-- Cybersecurity Category Tile -->
+            <div class="project-category-tile">
+              <i class="bi bi-shield-lock-fill"></i>
+              <span>Cybersecurity</span>
+            </div>
             <div class="row g-4">
               <div class="col-lg-6 col-12">
                 <a href="https://github.com/Bryan-KK-Mametja/SafeLink-SE2023-round1" target="_blank" rel="noopener" class="project-tile">
@@ -655,8 +691,11 @@
               </div>
             </div>
 
-            <!-- Data Science & ML -->
-            <h3 class="project-category"><strong>Data Science &amp; ML</strong></h3>
+            <!-- Data Science & ML Category Tile -->
+            <div class="project-category-tile">
+              <i class="bi bi-cpu-fill"></i>
+              <span>Data Science &amp; ML</span>
+            </div>
             <div class="row g-4">
 
               <div class="col-lg-6 col-12">
@@ -690,9 +729,9 @@
               </div>
 
               <div class="col-lg-6 col-12">
-                <a href="https://github.com/Bryan-KK-Mametja/ITAIA2-22-Artificial-Intelligence-Techniques-" target="_blank" rel="noopener" class="project-tile">
+                <a href="https://github.com/Bryan-KK-Mametja/Artificial-Intelligence-Techniques" target="_blank" rel="noopener" class="project-tile">
                   <div class="tile-tags">
-                    <span class="tile-tag">2026</span>
+                    <span class="tile-tag">2025</span>
                     <span class="tile-tag lang">Python</span>
                   </div>
                   <h4>AI Techniques Collection</h4>
@@ -706,9 +745,9 @@
               </div>
 
               <div class="col-lg-6 col-12">
-                <a href="https://github.com/Bryan-KK-Mametja/ITMLA2-44-Machine-Learning-Algorithms" target="_blank" rel="noopener" class="project-tile">
+                <a href="https://github.com/Bryan-KK-Mametja/Machine-Learning-Algorithms" target="_blank" rel="noopener" class="project-tile">
                   <div class="tile-tags">
-                    <span class="tile-tag">2026</span>
+                    <span class="tile-tag">2025</span>
                     <span class="tile-tag lang">Python</span>
                   </div>
                   <h4>Machine Learning Algorithms</h4>
@@ -722,9 +761,9 @@
               </div>
 
               <div class="col-lg-6 col-12">
-                <a href="https://github.com/Bryan-KK-Mametja/ITRDA3-11-R-Programming" target="_blank" rel="noopener" class="project-tile">
+                <a href="https://github.com/Bryan-KK-Mametja/Machine-Learning-Algorithms" target="_blank" rel="noopener" class="project-tile">
                   <div class="tile-tags">
-                    <span class="tile-tag">2026</span>
+                    <span class="tile-tag">2025</span>
                     <span class="tile-tag lang">R</span>
                   </div>
                   <h4>Stack Overflow Developer Survey Analysis</h4>
@@ -732,6 +771,21 @@
                     Longitudinal analysis of 2021–2023 Stack Overflow survey data — developer demographics and
                     trends in language and database popularity across experience levels. Built with tidyverse and
                     ggplot2.
+                  </p>
+                  <span class="tile-link">View repo <i class="bi bi-arrow-up-right"></i></span>
+                </a>
+              </div>
+
+              <div class="col-lg-6 col-12">
+                <a href="https://github.com/Bryan-KK-Mametja/random-forest-model" target="_blank" rel="noopener" class="project-tile">
+                  <div class="tile-tags">
+                    <span class="tile-tag">2025</span>
+                    <span class="tile-tag lang">Python</span>
+                  </div>
+                  <h4>Random Forest Model</h4>
+                  <p>
+                    Random forest implementation for classification and regression tasks, demonstrating ensemble
+                    learning with feature importance and model evaluation.
                   </p>
                   <span class="tile-link">View repo <i class="bi bi-arrow-up-right"></i></span>
                 </a>
@@ -817,7 +871,7 @@
       </div>
     </section>
 
-    <!-- ===== TIMELINE (original, full) ===== -->
+    <!-- ===== TIMELINE ===== -->
     <section class="timeline-section" id="section_timeline">
       <div class="container">
         <div class="row">
